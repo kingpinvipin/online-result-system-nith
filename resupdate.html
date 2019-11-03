@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RESUPDATE</title>	  
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/ticon.png">
+</head>
+<body>
+    <a href="/toptions/{{uname}} "><button type="button" class="btn btn-primary " style="width: 70px;height:70px;border-radius: 0px 0px 25px 0px;font-size: 18px;">Main</button></a>
+    <div class="container">
+        <div class="jumbotron" style="margin-top: 15px;border-radius: 25px;width: 500px;margin-left: 300px;">
+                <h1 style="margin-bottom: 15px;">{{purpose}} </h1>
+                <form action="/change/{{uname}}/{{purpose}} " method="POST" class="was-validated">
+                    <div class="form-group">
+                            <label for="rollno" style="font-size: 20px;">Roll no</label>
+                            <input type="number" class="form-control"  name="rollno" min = "1"  required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter a valid Roll no.</div>
+                    </div>
+                    <div class="form-group">
+                            <label for="grade" style="font-size: 20px;">Grade</label>
+                            <input type="text" class="form-control"  name="grade"   required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter a valid grade.</div>
+                    </div>
+                    <div class="form-group">
+                            <label for="subgp" style="font-size: 20px;">Sub GP</label>
+                            <input type="number" class="form-control"  name="subgp"  min = '0' required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter valid Sub GP.</div>
+                    </div>
+                    {% with messages = get_flashed_messages() %}  
+                    {% if messages %}  
+                        {% for message in messages %}  
+                            <h6 style="color: red;">{{ message }}</h6>  
+                        {% endfor %}  
+                    {% endif %}  
+                    {% endwith %} 
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </div>
+    </div>
+</body>
+</html>
